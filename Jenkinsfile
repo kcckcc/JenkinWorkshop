@@ -1,15 +1,18 @@
 pipeline {
   agent {
-    label 'jdk9'
+    label 'jdk8'
   }
   stages {
     stage('First Stage') {
       agent any
       steps {
-        echo 'Hello World'
+        echo "Hello ${MY_NAME}!"
         sh '''java -version
 '''
       }
     }
+  }
+  environment {
+    MY_NAME = 'Mary'
   }
 }
